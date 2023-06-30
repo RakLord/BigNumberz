@@ -1,7 +1,13 @@
 class Game {
     constructor(data) {
         this.version = "0.0.1";
-    
+
+        this.fpsLimit = 30;
+        this.gameFrame = 0;
+        this.frameCount = 0;
+
+        this.tab = 0;
+
         this.points = 0;
         
         this.layers = {
@@ -16,10 +22,6 @@ class Game {
                 "test": new Decimal("0")
             }
         }
-
-        this.fpsLimit = 30;
-        this.gameFrame = 0;
-        this.frameCount = 0;
     }
 }
 

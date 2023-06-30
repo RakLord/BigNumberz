@@ -14,8 +14,17 @@ function init() {
     game = newGame();
     dataDisplays.preons = $("#data-preons");
 
-    updateData(dataDisplays, game);
 
+    $("#tab0").on("click", function() {switchTab(0, game);});
+    $("#tab1").on("click", function() {switchTab(1, game);});
+    $("#tab2").on("click", function() {switchTab(2, game);});
+    $("#tab3").on("click", function() {switchTab(3, game);});
+    $("#tab4").on("click", function() {switchTab(4, game);});
+
+
+
+    updateData(dataDisplays, game);
+    switchTab(game.tab, game, true)
     headerText("Hi :)");
     console.log("init complete");
 }
@@ -28,7 +37,7 @@ function tick() {
 
         game.layers.the_beginning.preons = game.layers.the_beginning.preons.plus(new Decimal(("1", "10")));
         updateData(dataDisplays, game);
-
+        
         game.frameCount = 0; // Last in "if" statement
     }        
     requestAnimationFrame(tick);
