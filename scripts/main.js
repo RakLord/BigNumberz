@@ -20,6 +20,7 @@ function init() {
     $("#tab2").on("click", function() {switchTab(2, game);});
     $("#tab3").on("click", function() {switchTab(3, game);});
     $("#tab4").on("click", function() {switchTab(4, game);});
+    $("#tab99").on("click", function() {switchTab(99, game);});
 
 
 
