@@ -26,8 +26,7 @@ function tick() {
     if (game.frameCount >= 60 / game.fpsLimit) {
         game.gameFrame++; // First in "if" statement
 
-        game.layers.the_beginning.preons.plus(new Decimal("1"));
-        console.log(game.layers.the_beginning.preons);
+        game.layers.the_beginning.preons = game.layers.the_beginning.preons.plus(new Decimal(("1", "10")));
         updateData(dataDisplays, game);
 
         game.frameCount = 0; // Last in "if" statement
