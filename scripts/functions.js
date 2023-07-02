@@ -19,3 +19,11 @@ export function headerText(text){
 
     console.log(text);
 }
+
+export function formatValue(value) {
+
+    if (Math.abs(value.e - 2) < 4) {
+        return (value.mantissa * Math.pow(10, value.e))
+    }
+    return (value.mantissa + "e" + value.e)
+}

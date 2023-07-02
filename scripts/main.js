@@ -1,7 +1,6 @@
-import { headerText } from "./functions.js";
+import { headerText, formatValue } from "./functions.js";
 import { theBeginningInit } from "./layers/theBeginning.js";
 import { settingsInit } from "./settings.js";
-
 
 let game;
 let dataDisplays = {}
@@ -26,6 +25,11 @@ function init() {
     console.log("init start");
     game = new Game();
     dataDisplays.preons = $("#data-preons");
+    dataDisplays.quarks = $("#data-quarks");
+    dataDisplays.leptons = $("#data-leptons");
+    dataDisplays.protons = $("#data-protons");
+    dataDisplays.neutrons = $("#data-neutrons");
+
 
     theBeginningInit(game, containers.theBeginningContainer);
     settingsInit(game, containers.settingsContainer);
@@ -38,8 +42,9 @@ function init() {
     $("#tab99").on("click", function() {switchTab(5, game);});
 
 
-
-    updateData(dataDisplays, game);
+    console.log("AAAAAAAAAAAAA");
+    console.log(formatValue);
+    updateData(dataDisplays, game, formatValue);
     switchTab(game.tab, game, true)
     headerText("Hi :)");
     console.log("init complete");
@@ -51,10 +56,10 @@ function tick() {
     if (game.frameCount >= 60 / game.fpsLimit) {
         game.gameFrame++; // First in "if" statement
 
-        game.layers.the_beginning.preons = game.layers.the_beginning.preons.add(game.layers.the_beginning.preonsInc);
+        // game.layers.the_beginning.preons = game.layers.the_beginning.preons.add(game.layers.the_beginning.preonsInc);
+        game.layers.the_beginning.preons = game.layers.the_beginning.preons.plus(game.layers.the_beginning.preonsInc);
         
-        
-        updateData(dataDisplays, game);
+        updateData(dataDisplays, game, formatValue);
         
         game.frameCount = 0; // Last in "if" statement
     }        
